@@ -1,4 +1,4 @@
 csci477_project
 ===============
 
-CSCI 477a project - Hands Down voting app
+CSCI 477a project - Status app for iPhone
