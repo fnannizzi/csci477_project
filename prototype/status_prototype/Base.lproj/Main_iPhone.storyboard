@@ -30,7 +30,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GroupCell" editingAccessoryType="detailDisclosureButton" textLabel="Rxm-C1-vDx" detailTextLabel="PaM-lS-xo9" style="IBUITableViewCellStyleSubtitle" id="m0d-ak-lc9">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m0d-ak-lc9" id="vx0-CW-G5R">
                                     <rect key="frame" x="0.0" y="0.0" width="253" height="43"/>
@@ -54,7 +54,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="dje-4C-lS2" kind="push" identifier="ShowGroupDetail" id="wOz-3G-pCD"/>
+                                    <segue destination="pOl-Zw-YOD" kind="modal" id="VGF-v6-Sll"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -65,6 +65,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="status" id="tQt-TN-PWz"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
             </objects>
@@ -291,11 +292,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="pGg-6v-bdr" kind="modal" id="FOE-iv-BIq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="dgL-Ar-DFw"/>
+                    <navigationItem key="navigationItem" title="status" id="dgL-Ar-DFw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTA-Ws-alo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
