@@ -64,7 +64,7 @@
                             <outlet property="delegate" destination="pGg-6v-bdr" id="Y6K-Cp-Qkv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="status" id="tQt-TN-PWz">
+                    <navigationItem key="navigationItem" title="WithIt" id="tQt-TN-PWz">
                         <barButtonItem key="rightBarButtonItem" title="+" systemItem="add" id="KyL-fy-PCo">
                             <connections>
                                 <segue destination="zGQ-v0-gnb" kind="modal" id="Dw0-jL-awx"/>
@@ -160,13 +160,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="status" id="zXj-4H-lbV"/>
+                    <navigationItem key="navigationItem" title="WithIt" id="zXj-4H-lbV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tCx-bU-9NG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1934" y="749"/>
         </scene>
-        <!--Detail View Controller - status-->
+        <!--Detail View Controller - WithIt-->
         <scene sceneID="AyX-rP-c6Z">
             <objects>
                 <viewController id="dje-4C-lS2" customClass="DetailViewController" sceneMemberID="viewController">
@@ -244,7 +244,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="status" id="SjZ-CA-hmv"/>
+                    <navigationItem key="navigationItem" title="WithIt" id="SjZ-CA-hmv"/>
                     <connections>
                         <outlet property="creatorNameLabel" destination="Fii-ue-fyd" id="x1b-hL-Wfj"/>
                         <outlet property="dateCreatedLabel" destination="Fii-ue-fyd" id="m21-jw-eZc"/>
@@ -305,13 +305,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="status" id="dgL-Ar-DFw"/>
+                    <navigationItem key="navigationItem" title="WithIt" id="dgL-Ar-DFw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTA-Ws-alo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="488" y="64"/>
         </scene>
-        <!--View Controller - status-->
+        <!--View Controller - WithIt-->
         <scene sceneID="B77-9b-2gC">
             <objects>
                 <viewController id="dpE-c2-zMJ" sceneMemberID="viewController">
@@ -349,7 +349,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="status" id="maG-sW-Q6V"/>
+                    <navigationItem key="navigationItem" title="WithIt" id="maG-sW-Q6V"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BAQ-Lw-H1T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
