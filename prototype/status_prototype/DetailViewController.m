@@ -6,6 +6,11 @@
 //  Copyright (c) 2013 Francesca Nannizzi. All rights reserved.
 //
 
+
+
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) //1
+#define kLatestKivaLoansURL [NSURL URLWithString:@"http://api.kivaws.org/v1/loans/search.json?status=fundraising"] //2
+
 #import "DetailViewController.h"
 #import "Group.h"
 
@@ -48,9 +53,24 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"Loading view");
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+    dispatch_async(kBgQueue, ^{
+        NSData* data = [NSData dataWithContentsOfURL: kLatestKivaLoansURL];
+        // once the data arrives, call fetchedData and pass data to it
+        [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
+    });
+    
+}
+
+- (void)fetchedData:(NSData*)responseData
+{ // parses the JSON data
+    NSError* error;
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
+    NSArray* latestLoans = [json objectForKey:@"loans"];
+    NSLog(@"loans: %@", latestLoans);
 }
 
 - (void)didReceiveMemoryWarning
