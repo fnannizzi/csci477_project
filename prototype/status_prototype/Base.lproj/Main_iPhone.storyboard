@@ -77,10 +77,10 @@
             </objects>
             <point key="canvasLocation" x="1488" y="64"/>
         </scene>
-        <!--View Controller - Create Poll-->
+        <!--Create Poll Controller - Create Poll-->
         <scene sceneID="9fd-mj-1Ud">
             <objects>
-                <viewController title="Create Poll" id="pOl-Zw-YOD" sceneMemberID="viewController">
+                <viewController title="Create Poll" id="pOl-Zw-YOD" customClass="CreatePollController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2YJ-WM-Jtx"/>
                         <viewControllerLayoutGuide type="bottom" id="uEx-Bf-HIG"/>
@@ -311,10 +311,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="488" y="64"/>
         </scene>
-        <!--View Controller - WithIt-->
+        <!--Publish Poll Controller - WithIt-->
         <scene sceneID="B77-9b-2gC">
             <objects>
-                <viewController id="dpE-c2-zMJ" sceneMemberID="viewController">
+                <viewController id="dpE-c2-zMJ" customClass="PublishPollController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sRL-1J-00h"/>
                         <viewControllerLayoutGuide type="bottom" id="7Kw-5d-9av"/>
