@@ -63,6 +63,13 @@
         [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
     });
     
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(Back)];
+    self.navigationItem.leftBarButtonItem = backButton;
+}
+
+- (IBAction)Back
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)fetchedData:(NSData*)responseData
