@@ -23,11 +23,23 @@
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(Back)];
     self.navigationItem.leftBarButtonItem = backButton;
+    
+    UIButton *publishButton = [UIButton buttonWithType:UIButtonTypeSystem ];
+    [publishButton addTarget:self action:@selector(Publish) forControlEvents:UIControlEventTouchDown ];
+    [self.view addSubview:publishButton];
+
 }
 
 - (IBAction)Back
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)Publish
+{
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    //[[[self parentViewController] parentViewController] dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 @end

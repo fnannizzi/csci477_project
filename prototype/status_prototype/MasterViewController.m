@@ -60,7 +60,21 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionName;
+    switch (section){
+        case 0:
+            sectionName = NSLocalizedString(@"Polls I've been invited to:", @"Polls I've been invited to:");
+            break;
+        case 1:
+            sectionName = NSLocalizedString(@"Polls I created:", @"Polls I created:");
+            break;
+    }
+    return sectionName;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -71,16 +85,19 @@
     
     static NSString *CellIdentifier = @"GroupCell";
     
-    static NSDateFormatter *formatter = nil;
-    if (formatter == nil) {
-        formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateStyle:NSDateFormatterMediumStyle];
-    }
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    Group *groupAtIndex = [self.dataController objectInListAtIndex:indexPath.row];
-    [[cell textLabel] setText:groupAtIndex.name];
-    [[cell detailTextLabel] setText:[formatter stringFromDate:(NSDate *)groupAtIndex.dateCreated]];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    switch (indexPath.row){
+            static NSDateFormatter *formatter = nil;
+            if (formatter == nil) {
+                formatter = [[NSDateFormatter alloc] init];
+                [formatter setDateStyle:NSDateFormatterMediumStyle];
+            }
+    
+            Group *groupAtIndex = [self.dataController objectInListAtIndex:indexPath.row];
+            [[cell textLabel] setText:groupAtIndex.name];
+            [[cell detailTextLabel] setText:[formatter stringFromDate:(NSDate *)groupAtIndex.dateCreated]];
+    }
     return cell;
 }
 
@@ -124,14 +141,6 @@
     }
 }*/
 
-/*- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
-    }
-}*/
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ShowGroupDetails"]) {

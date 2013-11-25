@@ -20,7 +20,10 @@
     self.masterGroupsList = groupsList;
     Group *group;
     NSDate *today = [NSDate date];
-    group = [[Group alloc] initWithName:@"Default" creatorName:@"Francesca" dateCreated:today];
+    group = [[Group alloc] initWithName:@"Default member poll" creatorName:@"Francesca" dateCreated:today];
+    [self addGroupWithGroup:group];
+    
+    group = [[Group alloc] initWithName:@"Default creator poll" creatorName:@"Francesca" dateCreated:today];
     [self addGroupWithGroup:group];
 }
 
