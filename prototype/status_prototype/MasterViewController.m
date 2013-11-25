@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Francesca Nannizzi. All rights reserved.
 //
 
+#define pollTestURL [NSURL URLWithString:@"http://www-scf.usc.edu/~nannizzi/polls.json"]
+
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "GroupDataController.h"
@@ -26,6 +28,31 @@
     }
     [super awakeFromNib];
     self.dataController = [[GroupDataController alloc] init];
+    
+    NSData *pollsData = [[NSData alloc] initWithContentsOfURL:pollTestURL];
+    NSError *error;
+    self.polls = [NSJSONSerialization JSONObjectWithData:pollsData options:NSJSONReadingMutableContainers error:&error][@"polls"];
+	
+    if(error){
+        NSLog(@"Error loading JSON: %@", [error localizedDescription]);
+    }
+    else {
+        NSLog(@"JSON data loaded.");
+        NSLog(@"%@", self.polls);
+    }
+    
+    Group *group;
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyyMMdd"];
+    
+    for(NSDictionary *poll in self.polls){
+        //NSDate *date = [dateFormat dateFromString:poll[@"pollName"]];
+        NSDate *date = [NSDate date];
+        group = [[Group alloc] initWithName:poll[@"pollName"] creatorName:poll[@"creatorName"] dateCreated:date];
+        NSLog(@"Poll created.");
+        [self.dataController addGroupWithGroup:group];
+        NSLog(@"Poll added.");
+    }
 }
 
 - (void)viewDidLoad
@@ -34,10 +61,11 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(AddNewPoll)];
+ //   self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -59,33 +87,79 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionName;
+    switch (section){
+        case 0:
+            sectionName = NSLocalizedString(@"Friends' polls:", @"Friends' polls:");
+            break;
+        case 1:
+            sectionName = NSLocalizedString(@"My polls:", @"My polls:");
+            break;
+    }
+    return sectionName;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.dataController groupsCount];
+    NSUInteger numRows = 0;
+    switch (section){
+        case 0:
+            numRows = [self.dataController groupsCount];
+            break;
+        case 1:
+            numRows = [self.dataController groupsCreatedCount];
+            break;
+    }
+    return numRows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"GroupCell";
-    
-    static NSDateFormatter *formatter = nil;
-    if (formatter == nil) {
-        formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateStyle:NSDateFormatterMediumStyle];
-    }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSDateFormatter *formatter = nil;
+    Group *groupAtIndex;
     
-    Group *groupAtIndex = [self.dataController objectInListAtIndex:indexPath.row];
-    [[cell textLabel] setText:groupAtIndex.name];
-    [[cell detailTextLabel] setText:[formatter stringFromDate:(NSDate *)groupAtIndex.dateCreated]];
+    switch (indexPath.section) {
+        case 0:
+            if (!formatter) {
+                formatter = [[NSDateFormatter alloc] init];
+                [formatter setDateStyle:NSDateFormatterMediumStyle];
+            }
+            
+            groupAtIndex = [self.dataController objectInListAtIndex:(indexPath.row)];
+            [[cell textLabel] setText:groupAtIndex.name];
+            [[cell detailTextLabel] setText:[formatter stringFromDate:(NSDate *)groupAtIndex.dateCreated]];
+            break;
+            
+        case 1:
+            if (!formatter) {
+                formatter = [[NSDateFormatter alloc] init];
+                [formatter setDateStyle:NSDateFormatterMediumStyle];
+            }
+            
+            groupAtIndex = [self.dataController objectInCreatedListAtIndex:(indexPath.row)];
+            [[cell textLabel] setText:groupAtIndex.name];
+            [[cell detailTextLabel] setText:[formatter stringFromDate:(NSDate *)groupAtIndex.dateCreated]];
+            break;
+    }
+    cell.imageView.image = [UIImage imageNamed:@"placeholder.png"];
     return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
+    switch (indexPath.section){
+        case 0:
+            return NO;
+        case 1:
+            return YES;
+    }
     return YES;
 }
 
@@ -123,14 +197,6 @@
     }
 }*/
 
-/*- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
-    }
-}*/
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ShowGroupDetails"]) {

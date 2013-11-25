@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D5D197718436CB700BEF608 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D5D197618436CB700BEF608 /* placeholder.png */; };
 		1D91697E18151E5A008DD91F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D91697D18151E5A008DD91F /* Foundation.framework */; };
 		1D91698018151E5A008DD91F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D91697F18151E5A008DD91F /* CoreGraphics.framework */; };
 		1D91698218151E5A008DD91F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D91698118151E5A008DD91F /* UIKit.framework */; };
@@ -25,6 +26,8 @@
 		1D9169AF18151E5A008DD91F /* status_prototypeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9169AE18151E5A008DD91F /* status_prototypeTests.m */; };
 		1D9169BA18152450008DD91F /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9169B918152450008DD91F /* Group.m */; };
 		1D9169BD1815266B008DD91F /* GroupDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9169BC1815266B008DD91F /* GroupDataController.m */; };
+		B6BBA9FC18403E90003ADFC2 /* CreatePollController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BBA9FB18403E90003ADFC2 /* CreatePollController.m */; };
+		B6BBA9FF184043B2003ADFC2 /* PublishPollController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BBA9FE184043B2003ADFC2 /* PublishPollController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D5D197618436CB700BEF608 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		1D91697A18151E5A008DD91F /* status_prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = status_prototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D91697D18151E5A008DD91F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D91697F18151E5A008DD91F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -64,6 +68,10 @@
 		1D9169B918152450008DD91F /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		1D9169BB1815266B008DD91F /* GroupDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDataController.h; sourceTree = "<group>"; };
 		1D9169BC1815266B008DD91F /* GroupDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDataController.m; sourceTree = "<group>"; };
+		B6BBA9FA18403E73003ADFC2 /* CreatePollController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatePollController.h; sourceTree = "<group>"; };
+		B6BBA9FB18403E90003ADFC2 /* CreatePollController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatePollController.m; sourceTree = "<group>"; };
+		B6BBA9FD18404380003ADFC2 /* PublishPollController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishPollController.h; sourceTree = "<group>"; };
+		B6BBA9FE184043B2003ADFC2 /* PublishPollController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishPollController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				1D91698C18151E5A008DD91F /* AppDelegate.h */,
+				1D5D197618436CB700BEF608 /* placeholder.png */,
 				1D91698D18151E5A008DD91F /* AppDelegate.m */,
 				1D91698F18151E5A008DD91F /* Main_iPhone.storyboard */,
 				1D9169B818152450008DD91F /* Group.h */,
@@ -133,7 +142,11 @@
 				1D91699218151E5A008DD91F /* Main_iPad.storyboard */,
 				1D91699518151E5A008DD91F /* MasterViewController.h */,
 				1D91699618151E5A008DD91F /* MasterViewController.m */,
+				B6BBA9FD18404380003ADFC2 /* PublishPollController.h */,
+				B6BBA9FA18403E73003ADFC2 /* CreatePollController.h */,
+				B6BBA9FB18403E90003ADFC2 /* CreatePollController.m */,
 				1D91699818151E5A008DD91F /* DetailViewController.h */,
+				B6BBA9FE184043B2003ADFC2 /* PublishPollController.m */,
 				1D91699918151E5A008DD91F /* DetailViewController.m */,
 				1D91699B18151E5A008DD91F /* Images.xcassets */,
 				1D91698418151E5A008DD91F /* Supporting Files */,
@@ -249,6 +262,7 @@
 				1D91699418151E5A008DD91F /* Main_iPad.storyboard in Resources */,
 				1D91699C18151E5A008DD91F /* Images.xcassets in Resources */,
 				1D91699118151E5A008DD91F /* Main_iPhone.storyboard in Resources */,
+				1D5D197718436CB700BEF608 /* placeholder.png in Resources */,
 				1D91698818151E5A008DD91F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +285,8 @@
 				1D91698E18151E5A008DD91F /* AppDelegate.m in Sources */,
 				1D91699718151E5A008DD91F /* MasterViewController.m in Sources */,
 				1D9169BA18152450008DD91F /* Group.m in Sources */,
+				B6BBA9FC18403E90003ADFC2 /* CreatePollController.m in Sources */,
+				B6BBA9FF184043B2003ADFC2 /* PublishPollController.m in Sources */,
 				1D91698A18151E5A008DD91F /* main.m in Sources */,
 				1D91699A18151E5A008DD91F /* DetailViewController.m in Sources */,
 				1D9169BD1815266B008DD91F /* GroupDataController.m in Sources */,
@@ -492,6 +508,7 @@
 				1D9169B418151E5A008DD91F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1D9169B518151E5A008DD91F /* Build configuration list for PBXNativeTarget "status_prototypeTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +517,7 @@
 				1D9169B718151E5A008DD91F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
