@@ -95,10 +95,10 @@
     NSString *sectionName;
     switch (section){
         case 0:
-            sectionName = NSLocalizedString(@"Polls I've been invited to:", @"Polls I've been invited to:");
+            sectionName = NSLocalizedString(@"Friends' polls:", @"Friends' polls:");
             break;
         case 1:
-            sectionName = NSLocalizedString(@"Polls I created:", @"Polls I created:");
+            sectionName = NSLocalizedString(@"My polls:", @"My polls:");
             break;
     }
     return sectionName;
