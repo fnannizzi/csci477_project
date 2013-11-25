@@ -15,5 +15,6 @@
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 @property (strong, nonatomic) GroupDataController *dataController;
+@property NSDictionary *polls;
 
 @end

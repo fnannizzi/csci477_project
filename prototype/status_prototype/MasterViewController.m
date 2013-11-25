@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Francesca Nannizzi. All rights reserved.
 //
 
+#define pollTestURL [NSURL URLWithString:@"http://www-scf.usc.edu/~nannizzi/polls.json"]
+
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "GroupDataController.h"
@@ -26,6 +28,31 @@
     }
     [super awakeFromNib];
     self.dataController = [[GroupDataController alloc] init];
+    
+    NSData *pollsData = [[NSData alloc] initWithContentsOfURL:pollTestURL];
+    NSError *error;
+    self.polls = [NSJSONSerialization JSONObjectWithData:pollsData options:NSJSONReadingMutableContainers error:&error][@"polls"];
+	
+    if(error){
+        NSLog(@"Error loading JSON: %@", [error localizedDescription]);
+    }
+    else {
+        NSLog(@"JSON data loaded.");
+        NSLog(@"%@", self.polls);
+    }
+    
+    Group *group;
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyyMMdd"];
+    
+    for(NSDictionary *poll in self.polls){
+        //NSDate *date = [dateFormat dateFromString:poll[@"pollName"]];
+        NSDate *date = [NSDate date];
+        group = [[Group alloc] initWithName:poll[@"pollName"] creatorName:poll[@"creatorName"] dateCreated:date];
+        NSLog(@"Poll created.");
+        [self.dataController addGroupWithGroup:group];
+        NSLog(@"Poll added.");
+    }
 }
 
 - (void)viewDidLoad
@@ -78,32 +105,61 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.dataController groupsCount];
+    NSUInteger numRows = 0;
+    switch (section){
+        case 0:
+            numRows = [self.dataController groupsCount];
+            break;
+        case 1:
+            numRows = [self.dataController groupsCreatedCount];
+            break;
+    }
+    return numRows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"GroupCell";
-    
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    switch (indexPath.row){
-            static NSDateFormatter *formatter = nil;
-            if (formatter == nil) {
+    static NSDateFormatter *formatter = nil;
+    Group *groupAtIndex;
+    
+    switch (indexPath.section) {
+        case 0:
+            if (!formatter) {
                 formatter = [[NSDateFormatter alloc] init];
                 [formatter setDateStyle:NSDateFormatterMediumStyle];
             }
-    
-            Group *groupAtIndex = [self.dataController objectInListAtIndex:indexPath.row];
+            
+            groupAtIndex = [self.dataController objectInListAtIndex:(indexPath.row)];
             [[cell textLabel] setText:groupAtIndex.name];
             [[cell detailTextLabel] setText:[formatter stringFromDate:(NSDate *)groupAtIndex.dateCreated]];
+            break;
+            
+        case 1:
+            if (!formatter) {
+                formatter = [[NSDateFormatter alloc] init];
+                [formatter setDateStyle:NSDateFormatterMediumStyle];
+            }
+            
+            groupAtIndex = [self.dataController objectInCreatedListAtIndex:(indexPath.row)];
+            [[cell textLabel] setText:groupAtIndex.name];
+            [[cell detailTextLabel] setText:[formatter stringFromDate:(NSDate *)groupAtIndex.dateCreated]];
+            break;
     }
+    cell.imageView.image = [UIImage imageNamed:@"placeholder.png"];
     return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
+    switch (indexPath.section){
+        case 0:
+            return NO;
+        case 1:
+            return YES;
+    }
     return YES;
 }
 

@@ -13,9 +13,14 @@
 @interface GroupDataController : NSObject
 
 @property (nonatomic, copy) NSMutableArray *masterGroupsList;
+@property (nonatomic, copy) NSMutableArray *masterGroupsCreatedList;
 
 - (NSUInteger)groupsCount;
 - (Group *)objectInListAtIndex:(NSUInteger)theIndex;
 - (void)addGroupWithGroup:(Group *)group;
+
+- (NSUInteger)groupsCreatedCount;
+- (Group *)objectInCreatedListAtIndex:(NSUInteger)theIndex;
+- (void)addGroupCreatedWithGroup:(Group *)group;
 
 @end

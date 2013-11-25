@@ -18,18 +18,27 @@
 - (void)initializeDefaultDataList {
     NSMutableArray *groupsList = [[NSMutableArray alloc] init];
     self.masterGroupsList = groupsList;
+    
+    NSMutableArray *createdGroupsList = [[NSMutableArray alloc] init];
+    self.masterGroupsCreatedList = createdGroupsList;
+    
     Group *group;
     NSDate *today = [NSDate date];
     group = [[Group alloc] initWithName:@"Default member poll" creatorName:@"Francesca" dateCreated:today];
     [self addGroupWithGroup:group];
-    
     group = [[Group alloc] initWithName:@"Default creator poll" creatorName:@"Francesca" dateCreated:today];
-    [self addGroupWithGroup:group];
+    [self addGroupCreatedWithGroup:group];
 }
 
 - (void)setMasterGroupsList:(NSMutableArray *)newList {
     if (_masterGroupsList != newList) {
         _masterGroupsList = [newList mutableCopy];
+    }
+}
+
+- (void)setMasterGroupsCreatedList:(NSMutableArray *)newList {
+    if (_masterGroupsCreatedList != newList) {
+        _masterGroupsCreatedList = [newList mutableCopy];
     }
 }
 
@@ -51,6 +60,18 @@
 
 - (void)addGroupWithGroup:(Group *)group {
     [self.masterGroupsList addObject:group];
+}
+
+- (NSUInteger)groupsCreatedCount {
+    return [self.masterGroupsCreatedList count];
+}
+
+- (Group *)objectInCreatedListAtIndex:(NSUInteger)theIndex {
+    return [self.masterGroupsCreatedList objectAtIndex:theIndex];
+}
+
+- (void)addGroupCreatedWithGroup:(Group *)group {
+    [self.masterGroupsCreatedList addObject:group];
 }
 
 @end

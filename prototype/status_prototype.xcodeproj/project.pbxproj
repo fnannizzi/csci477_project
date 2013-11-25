@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D5D197718436CB700BEF608 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D5D197618436CB700BEF608 /* placeholder.png */; };
 		1D91697E18151E5A008DD91F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D91697D18151E5A008DD91F /* Foundation.framework */; };
 		1D91698018151E5A008DD91F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D91697F18151E5A008DD91F /* CoreGraphics.framework */; };
 		1D91698218151E5A008DD91F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D91698118151E5A008DD91F /* UIKit.framework */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D5D197618436CB700BEF608 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		1D91697A18151E5A008DD91F /* status_prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = status_prototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D91697D18151E5A008DD91F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D91697F18151E5A008DD91F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				1D91698C18151E5A008DD91F /* AppDelegate.h */,
+				1D5D197618436CB700BEF608 /* placeholder.png */,
 				1D91698D18151E5A008DD91F /* AppDelegate.m */,
 				1D91698F18151E5A008DD91F /* Main_iPhone.storyboard */,
 				1D9169B818152450008DD91F /* Group.h */,
@@ -259,6 +262,7 @@
 				1D91699418151E5A008DD91F /* Main_iPad.storyboard in Resources */,
 				1D91699C18151E5A008DD91F /* Images.xcassets in Resources */,
 				1D91699118151E5A008DD91F /* Main_iPhone.storyboard in Resources */,
+				1D5D197718436CB700BEF608 /* placeholder.png in Resources */,
 				1D91698818151E5A008DD91F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
